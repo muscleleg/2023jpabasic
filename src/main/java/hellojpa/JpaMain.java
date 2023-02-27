@@ -13,13 +13,7 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try{
-            //비영속
-            Member member = new Member();
-            member.setId(100L);
-            member.setName("HelloJPA");
 
-            //영속 상태
-            em.persist(member);
             tx.commit();
         }catch (Exception e){
             tx.rollback();
