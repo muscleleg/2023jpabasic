@@ -3,7 +3,9 @@ package hellojpa;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.locks.Lock;
 
 @Entity
@@ -22,19 +24,8 @@ public class Member {
    @OneToOne
    @JoinColumn(name = "LOCKER_ID")
    private Locker locker;
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+   @OneToMany(mappedBy = "member")
+   private List<MemberProduct> memberProducts = new ArrayList<>();
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 }
